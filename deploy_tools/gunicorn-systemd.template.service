@@ -1,0 +1,11 @@
+[Unit]
+Description=Gunicorn server for 121.36.77.52
+
+[Service]
+Restart=on-failure
+User=kiritorl
+WorkingDirectory=/home/kiritorl/sites/121.36.77.52/source
+ExecStart=/home/kiritorl/sites/121.36.77.52/virtualenv/bin/gunicorn --bind unix:/tmp/121.36.77.52.socket superlists.wsgi:application
+
+[Install]
+WantedBy=multi-user.target
